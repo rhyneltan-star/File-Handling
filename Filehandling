@@ -1,0 +1,24 @@
+try:
+    note1 = input("Enter a note: ")
+
+    with open("notes.txt", "w") as file:
+        file.write(note1 + "\n")
+        print("Note saved to file.")
+
+    with open("notes.txt", "r") as file:
+        print("\nContent of the file:")
+        print(file.read())
+
+    note2 = input ("\nEnter another note to append: ")
+    with open("notes.txt", "a") as file:
+        file.write(note2 + "\n")
+        print("Note added to file.")
+
+    with open("notes.txt", "r") as file:
+         print("\nUpdated content of the file:")
+         print(file.read())
+
+except FileNotFoundError:
+    print("File not found.")
+except Exception as e:
+    print("An error has occurred:", e)
